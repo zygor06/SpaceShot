@@ -1,5 +1,9 @@
 package spaceshot.hygor.com.br.spaceshot.config;
 
+import android.net.Uri;
+
+import spaceshot.hygor.com.br.spaceshot.R;
+
 /**
  * Created by Hygor Dias on 25/10/2017.
  * ~github.com/zygor06
