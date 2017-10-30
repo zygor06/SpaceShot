@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpaceShot.iml" filepath="$PROJECT_DIR$/SpaceShot.iml" />
-      <module fileurl="file://D:\Users\Aragorn\Google Drive\Desv\Android\SpaceShot\.idea\SpaceShot.iml" filepath="D:\Users\Aragorn\Google Drive\Desv\Android\SpaceShot\.idea\SpaceShot.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
