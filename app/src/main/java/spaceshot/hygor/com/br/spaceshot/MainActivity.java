@@ -1,43 +1,51 @@
 package spaceshot.hygor.com.br.spaceshot;
 
+import org.cocos2d.layers.CCScene;
+import org.cocos2d.nodes.CCDirector;
+import org.cocos2d.opengl.CCGLSurfaceView;
+
+import android.app.Activity;
+import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.support.v7.app.AppCompatActivity;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import org.cocos2d.actions.interval.CCScaleBy;
-import org.cocos2d.layers.CCScene;
-import org.cocos2d.nodes.CCDirector;
-import org.cocos2d.nodes.CCSprite;
-import org.cocos2d.opengl.CCGLSurfaceView;
+import spaceshot.hygor.com.br.spaceshot.config.DeviceSettings;
+import spaceshot.hygor.com.br.spaceshot.game.scenes.TitleScreen;
 
-import spaceshot.hygor.com.br.spaceshot.scenes.TitleScreen;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		// landscape orientation
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //Orientação da tela
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-        );
+		// view
+		CCGLSurfaceView glSurfaceView = new CCGLSurfaceView(this);
+		setContentView(glSurfaceView);
+		CCDirector.sharedDirector().attachInView(glSurfaceView);
+		
+		// sensor manager
+		configSensormanager();
+		
+		// configure CCDirector 
+		CCDirector.sharedDirector().setScreenSize(320, 480);
+		
+		// Starts title screen
+		CCScene scene = new TitleScreen().scene();
+		CCDirector.sharedDirector().runWithScene(scene);
+	}
+	
+	private void configSensormanager() {
+		SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		DeviceSettings.setSensorManager(sensorManager);
+	}
 
-        //Configuração da tela
-        CCGLSurfaceView glView = new CCGLSurfaceView(this);
-        setContentView(glView);
-        CCDirector.sharedDirector().attachInView(glView);
-
-        //Configuração Diretor
-        CCDirector.sharedDirector().setScreenSize(320,480);
-
-        //Abrir tela principal
-        CCScene scene = new TitleScreen().scene();
-        CCDirector.sharedDirector().runWithScene(scene);
-    }
 }

@@ -1,21 +1,25 @@
 package spaceshot.hygor.com.br.spaceshot.config;
 
-import android.net.Uri;
-
-import spaceshot.hygor.com.br.spaceshot.R;
-
-/**
- * Created by Hygor Dias on 25/10/2017.
- * ~github.com/zygor06
- */
-
 public class Assets {
 
-    public static final String BACKGROUND = "background.png";
-    public static final String LOGO = "logo.png";
-    public static final String PLAY = "play.png";
-    public static final String HIGHSCORE = "highscore.png";
-    public static final String HELP = "help.png";
-    public static final String SOUND = "sound.png";
+	public static String  BACKGROUND = "background.png";
+	public static String  LOGO 		 = "logo.png";
+	public static String  FINALEND 	 = "finalend.png";
+	public static String  GAMEOVER 	 = "gameover.png";
+	
+	public static String  PLAY 		 = "play.png";
+	public static String  PAUSE		 = "pause.png";
+	public static String  HIGHSCORE  = "highscore.png";
+	public static String  HELP  	 = "help.png";
+	public static String  SOUND      = "sound.png";
+	public static String  EXIT		 = "exit.png";
 
+	public static String  METEOR     = "meteor.png";
+	public static String  NAVE       = "nave.png";
+	public static String  SHOOT      = "shoot.png";
+	
+	public static String LEFTCONTROL  = "left.png";
+	public static String RIGHTCONTROL = "right.png";
+	public static String SHOOTBUTTON  = "shootButton.png";
+	
 }
