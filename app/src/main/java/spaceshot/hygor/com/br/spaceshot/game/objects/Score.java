@@ -27,7 +27,7 @@ public class Score  extends CCLayer {
 				String.valueOf(this.score),
 				"UniSansSemiBold_Numbers_240.fnt");
 		
-		this.text.setScale((float) 240 / 240);
+		this.text.setScale((float) 240 / 320);
 		
 		this.setPosition(screenWidth()-50, screenHeight()-50);
 		this.addChild(this.text);
@@ -37,7 +37,7 @@ public class Score  extends CCLayer {
 		score++;		
 		this.text.setString(String.valueOf(this.score)); 
 		
-		if(score==5){
+		if(score==30){
 			this.delegate.startFinalScreen();
 		}
 		
