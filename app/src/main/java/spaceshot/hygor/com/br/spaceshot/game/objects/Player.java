@@ -30,7 +30,6 @@ public class Player extends CCSprite implements AccelerometerDelegate {
 	private Accelerometer accelerometer;
 
 	private float currentAccelX;
-
 	private float currentAccelY;
 	
 	public Player() {
