@@ -34,7 +34,7 @@ public class Shoot extends CCSprite {
 
 	public void update(float dt) {
 		if (Runner.check().isGamePlaying() && !Runner.check().isGamePaused()) {
-			positionY += 2;
+			positionY += 6;
 			this.setPosition(screenResolution(CGPoint.ccp(positionX, positionY)));
 		}
 	}
