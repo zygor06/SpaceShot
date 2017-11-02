@@ -4,6 +4,8 @@ import static spaceshot.hygor.com.br.spaceshot.config.DeviceSettings.screenHeigh
 import static spaceshot.hygor.com.br.spaceshot.config.DeviceSettings.screenResolution;
 import static spaceshot.hygor.com.br.spaceshot.config.DeviceSettings.screenWidth;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,8 +106,12 @@ public class GameScene extends CCLayer implements MeteorsEngineDelegate,
 		// sons
 		// exercicio 6 
 		// adicione musica ao jogo
+        SoundEngine.sharedEngine().playSound(
+                CCDirector.sharedDirector().getActivity(),
+                R.raw.music, true);
 
-		preloadCache();
+
+        preloadCache();
 	}
 
 	private void preloadCache() {
@@ -126,6 +132,8 @@ public class GameScene extends CCLayer implements MeteorsEngineDelegate,
 		this.player = new Player();
 		// exercicio 4
 		// adicione o player ao jogo
+		this.player = new Player();
+		this.playerLayer.addChild(this.player);
 
 		// score
 		this.score = new Score();
@@ -150,6 +158,7 @@ public class GameScene extends CCLayer implements MeteorsEngineDelegate,
 		// Catch Accelerometer
 		// exercicio 7
 		// Habilite o acelerometro
+        player.catchAccelerometer();
 
 		// pause
 		SoundEngine.sharedEngine().setEffectsVolume(1f);
@@ -197,29 +206,29 @@ public class GameScene extends CCLayer implements MeteorsEngineDelegate,
 
 				// Check Hit!
 				// exercicio 5
-//				if (CGRect.intersects(rect1, rect2)) {
-//					System.out.println("Colision Detected: " + hit);
-//					result = true;
-//
-//					Method method;
-//					try {
-//						method = GameScene.class.getMethod(hit, CCSprite.class,
-//								CCSprite.class);
-//
-//						method.invoke(gameScene, array1.get(i), array2.get(j));
-//
-//					} catch (SecurityException e1) {
-//						e1.printStackTrace();
-//					} catch (NoSuchMethodException e1) {
-//						e1.printStackTrace();
-//					} catch (IllegalArgumentException e) {
-//						e.printStackTrace();
-//					} catch (IllegalAccessException e) {
-//						e.printStackTrace();
-//					} catch (InvocationTargetException e) {
-//						e.printStackTrace();
-//					}
-//				}
+				if (CGRect.intersects(rect1, rect2)) {
+					System.out.println("Colision Detected: " + hit);
+					result = true;
+
+					Method method;
+					try {
+						method = GameScene.class.getMethod(hit, CCSprite.class,
+								CCSprite.class);
+
+						method.invoke(gameScene, array1.get(i), array2.get(j));
+
+					} catch (SecurityException e1) {
+						e1.printStackTrace();
+					} catch (NoSuchMethodException e1) {
+						e1.printStackTrace();
+					} catch (IllegalArgumentException e) {
+						e.printStackTrace();
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					} catch (InvocationTargetException e) {
+						e.printStackTrace();
+					}
+				}
 			}
 		}
 
